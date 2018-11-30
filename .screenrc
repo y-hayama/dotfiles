@@ -1,0 +1,34 @@
+# 現在の背景色で消去する
+defbce "on"
+
+# 256色表示設定
+term xterm-256color
+# スクロールバッファは最大10000行にする
+defscrollback 10000
+# 別画面サポート。Vimやless使うときに便利
+altscreen on
+
+defutf8 on
+defencoding utf8
+encoding utf-8 utf-8
+
+# ログファイルのファイル名
+logfile "$HOME/.screen/screen-%Y%m%d-%c:%s-%n.log"
+# # 標準でログをとる
+deflog on
+
+startup_message off
+autodetach on
+vbell off
+
+caption always "%-w%10L>%{=b bw}%n %t%{-}%+w%-0="
+hardstatus alwayslastline "%H%=%Y/%m/%d %02c"
+shelltitle "$ |shell"
+
+termcapinfo linux ti@:te@
+termcapinfo xterm ti@:te@
+termcapinfo xterm-color ti@:te@
+termcapinfo xterm* ti@:te@
+
+shell $SHELL
+
